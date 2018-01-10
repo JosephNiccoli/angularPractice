@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Practice</title>
+	<meta charset="utf-8" />
+	<link href="/Content/bootstrap.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous" />
+
+</head>
+<body>
+
+
+	<div ng-app='mainApp' class="container">
+		<h2>Angular Example</h2>
+		<div ng-controller='myController as control'>
+			<h3>Controller Spot</h3>
+
+			<p>{{control.myMessage}}</p>  <!-- one way data binding (declarative style) -->
+			<button type="button" ng-click="control.changeMessage()">Click Me</button>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+
+	<script>
+
+		angular.module('mainApp', []);
+
+		angular.module('mainApp')
+			.controller('myController', myController);
+		function myController() {
+			var vm = this;
+			vm.myMessage = "this is a message";
+			vm.changeMessage = _changeMessage;
+
+			function _changeMessage() {
+				vm.myMessage = "this is a better message";
+			}
+		}
+
+
+
+	</script>
+</body>
+</html>
